@@ -13,7 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
       // Clear loading message
       activitiesList.innerHTML = "";
 
-      // Populate activities list
+      // Limpiar y volver a cargar las opciones del select antes de renderizar tarjetas
+      activitySelect.innerHTML = '<option value="">-- Select an activity --</option>';
+      Object.keys(activities).forEach(name => {
+        const option = document.createElement("option");
+        option.value = name;
+        option.textContent = name;
+        activitySelect.appendChild(option);
+      });
+
+      // Renderizar tarjetas de actividades
       Object.entries(activities).forEach(([name, details]) => {
         const activityCard = document.createElement("div");
         activityCard.className = "activity-card";
@@ -65,15 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
             alert('Error al eliminar participante.');
           }
         });
-      });
-
-      // Limpiar y volver a cargar las opciones del select
-      activitySelect.innerHTML = '<option value="">-- Select an activity --</option>';
-      Object.keys(activities).forEach(name => {
-        const option = document.createElement("option");
-        option.value = name;
-        option.textContent = name;
-        activitySelect.appendChild(option);
       });
     } catch (error) {
       activitiesList.innerHTML = "<p>Failed to load activities. Please try again later.</p>";
