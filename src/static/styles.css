@@ -1,3 +1,28 @@
+/* Oculta los puntos de la lista de participantes y mejora el diseño */
+.participants-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.participants-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.remove-participant-btn {
+  background: none;
+  border: none;
+  color: #c62828;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 4px;
+  transition: color 0.2s;
+}
+.remove-participant-btn:hover {
+  color: #a31515;
+}
 * {
   box-sizing: border-box;
   margin: 0;
